@@ -12,6 +12,9 @@
 		E71611FD21AE3830003E6831 /* CountryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71611FC21AE3830003E6831 /* CountryListViewController.swift */; };
 		E71611FF21AE3FA9003E6831 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71611FE21AE3FA9003E6831 /* Country.swift */; };
 		E716120121AE524B003E6831 /* CountryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E716120021AE524B003E6831 /* CountryDetailViewController.swift */; };
+		E71DBEDD21AFA9D90093ECEE /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71DBEDC21AFA9D90093ECEE /* ReviewViewController.swift */; };
+		E71DBEDF21AFAE8A0093ECEE /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71DBEDE21AFAE8A0093ECEE /* Review.swift */; };
+		E71DBEE121B094550093ECEE /* Reviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71DBEE021B094550093ECEE /* Reviews.swift */; };
 		E773406E21ADD99000238E95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E773406D21ADD99000238E95 /* AppDelegate.swift */; };
 		E773407021ADD99000238E95 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E773406F21ADD99000238E95 /* ViewController.swift */; };
 		E773407321ADD99000238E95 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E773407121ADD99000238E95 /* Main.storyboard */; };
@@ -27,6 +30,9 @@
 		E71611FC21AE3830003E6831 /* CountryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryListViewController.swift; sourceTree = "<group>"; };
 		E71611FE21AE3FA9003E6831 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		E716120021AE524B003E6831 /* CountryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDetailViewController.swift; sourceTree = "<group>"; };
+		E71DBEDC21AFA9D90093ECEE /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
+		E71DBEDE21AFAE8A0093ECEE /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
+		E71DBEE021B094550093ECEE /* Reviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reviews.swift; sourceTree = "<group>"; };
 		E773406A21ADD99000238E95 /* FinalAppProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalAppProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E773406D21ADD99000238E95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E773406F21ADD99000238E95 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -85,6 +91,9 @@
 				E7A331C521AF25E6000E0D91 /* flagDetails.swift */,
 				E773406F21ADD99000238E95 /* ViewController.swift */,
 				E716120021AE524B003E6831 /* CountryDetailViewController.swift */,
+				E71DBEDC21AFA9D90093ECEE /* ReviewViewController.swift */,
+				E71DBEE021B094550093ECEE /* Reviews.swift */,
+				E71DBEDE21AFAE8A0093ECEE /* Review.swift */,
 				E773407121ADD99000238E95 /* Main.storyboard */,
 				E773407421ADD99B00238E95 /* Assets.xcassets */,
 				E773407621ADD99B00238E95 /* LaunchScreen.storyboard */,
@@ -138,6 +147,7 @@
 				TargetAttributes = {
 					E773406921ADD99000238E95 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 					};
 				};
 			};
@@ -309,10 +319,13 @@
 			files = (
 				E71611FF21AE3FA9003E6831 /* Country.swift in Sources */,
 				E716120121AE524B003E6831 /* CountryDetailViewController.swift in Sources */,
+				E71DBEDF21AFAE8A0093ECEE /* Review.swift in Sources */,
 				E7A331C621AF25E6000E0D91 /* flagDetails.swift in Sources */,
 				E773407021ADD99000238E95 /* ViewController.swift in Sources */,
 				E71611FD21AE3830003E6831 /* CountryListViewController.swift in Sources */,
+				E71DBEE121B094550093ECEE /* Reviews.swift in Sources */,
 				E773406E21ADD99000238E95 /* AppDelegate.swift in Sources */,
+				E71DBEDD21AFA9D90093ECEE /* ReviewViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -459,6 +472,7 @@
 			baseConfigurationReference = 0172863547836959A6493687 /* Pods-FinalAppProject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3L2TPGQ574;
 				INFOPLIST_FILE = FinalAppProject/Info.plist;
@@ -468,6 +482,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.paige.FinalAppProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -478,6 +493,7 @@
 			baseConfigurationReference = 21F64832EC62082ED2C7C194 /* Pods-FinalAppProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3L2TPGQ574;
 				INFOPLIST_FILE = FinalAppProject/Info.plist;

@@ -7,37 +7,92 @@
 //
 
 import Foundation
-import GooglePlaces
-import MapKit
 import SwiftyJSON
 import Alamofire
+import MapKit
 
-class Countries {
-    struct CountryData {
+class Countries: NSObject, MKAnnotation {
+    
+//    struct CountryData {
         var name: String
         var region: String
-        var currencyName: String
-        var currencySymbol: String
+        var capitalName: String
+        //var currencySymbol: String
         var flagURL: String
+        var population: Double
+        var coordinate: CLLocationCoordinate2D
+    
+    var longitude: CLLocationDegrees {
+        return coordinate.longitude
     }
     
-    var countryArray: [CountryData] = []
-    var countryURL = "https://countryapi.gear.host/v1/Country/getCountries"
+    var latitude: CLLocationDegrees {
+        return coordinate.latitude
+    }
+    
+    var location: CLLocation {
+        return CLLocation(latitude: latitude, longitude: longitude)
+    }
+    
+
+    init(name: String, region: String, capitalName: String, flagURL: String, population: Double, coordinate: CLLocationCoordinate2D) {
+        self.name = name
+        self.region = region
+        self.capitalName = capitalName
+        self.flagURL = flagURL
+        self.population = population
+        self.coordinate = coordinate
+    }
+    
+    convenience override init() {
+        self.init(name: "", region: "", capitalName: "", flagURL: "", population: Double(), coordinate: CLLocationCoordinate2D())
+        
+    }
+        
+        
+//    }
+    
+//    var longitude: CLLocationDegrees {
+//        return coordinate.longitude
+//    }
+//    
+//    var latitude: CLLocationDegrees {
+//        return coordinate.latitude
+//    }
+//    
+//    var location: CLLocation {
+//        return CLLocation(latitude: latitude, longitude: longitude)
+//    }
+    
+//    var countryArray: [CountryData] = []
+    var countryArray: [Countries] = []
+    var countryURL = "https://restcountries.eu/rest/v2/all"
     
     
     func getCountries(completed: @escaping () -> ()) {
+        var newArray: [String] = []
         Alamofire.request(countryURL).responseJSON {response in
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
-                let numberOfCountries = json["Response"].count
+                let numberOfCountries = json.count
                 for index in 0...numberOfCountries - 1 {
-                    let name = json["Response"][index]["Name"].stringValue
-                    let region = json["Response"][index]["Region"].stringValue
-                    let currencyName = json["Response"][index]["CurrencyName"].stringValue
-                    let currencySymbol = json["Response"][index]["CurrencySymbol"].stringValue
-                    let flagURL = json["Response"][index]["FlagPng"].stringValue
-                    self.countryArray.append(CountryData(name: name, region: region, currencyName: currencyName, currencySymbol: currencySymbol, flagURL: flagURL))
+                    let name = json[index]["name"].stringValue
+                    let region = json[index]["subregion"].stringValue
+                    for num in json[index]["currencies"] {
+                        newArray.append(json[index]["currencies"][num.0]["code"].stringValue)
+                        print(newArray)
+                    }
+            
+                    let capitalName = json[index]["capital"].stringValue
+                    //let currencySymbol = json[index]["currencies"]["symbol"].stringValue
+                    let flagURL = json[index]["flag"].stringValue
+                    let population = json[index]["population"].doubleValue
+                    let latitude = json[index]["latlng"][0].doubleValue
+                    let longitude = json[index]["latlng"][1].doubleValue
+                    let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+                    print(coordinate)
+                    self.countryArray.append(Countries(name: name, region: region, capitalName: capitalName, flagURL: flagURL, population: population, coordinate: coordinate))
                 }
             case .failure(let error):
                 print("*** ERROR: failed to get data from url \(self.countryURL) \(error.localizedDescription)")

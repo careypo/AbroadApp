@@ -8,13 +8,13 @@
 
 import UIKit
 
+
 class CountryListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
     
     var countries = Countries()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +23,9 @@ class CountryListViewController: UIViewController {
         
         countries.getCountries {
             self.tableView.reloadData()
+            
         }
+        
 
     }
     
@@ -31,14 +33,22 @@ class CountryListViewController: UIViewController {
         if segue.identifier == "ShowCountryDetail" {
             let destination = segue.destination as! CountryDetailViewController
             if let selectedIndex = tableView.indexPathForSelectedRow {
+                destination.country = countries.countryArray[selectedIndex.row]
                 destination.name = countries.countryArray[selectedIndex.row].name
-                destination.currencyName = countries.countryArray[selectedIndex.row].currencyName
-                destination.currencySymbol = countries.countryArray[selectedIndex.row].currencySymbol
+                destination.capitalName = countries.countryArray[selectedIndex.row].capitalName
+//                //destination.currencySymbol = countries.countryArray[selectedIndex.row].currencySymbol
                 destination.region = countries.countryArray[selectedIndex.row].region
-                destination.flagDetails.flagURL = countries.countryArray[selectedIndex.row].flagURL
+               
+                destination.flagPic = countries.countryArray[selectedIndex.row].flagURL
+        
+//                destination.flagDetails.flagURL = countries.countryArray[selectedIndex.row].flagURL
+//                destination.language = countries.countryArray[selectedIndex.row].language
+//                destination.currentLocation = countries.countryArray[selectedIndex.row].coordinate
             }
         }
     }
+    
+    
 }
 
 extension CountryListViewController: UITableViewDelegate, UITableViewDataSource {

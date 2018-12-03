@@ -12,6 +12,7 @@ import Firebase
 import CoreLocation
 
 class Review {
+    var country: String
     var locationCity: String
     var bestSite: String
     var why: String
@@ -21,11 +22,12 @@ class Review {
     var documentID: String
     
     var dictionary: [String: Any] {
-        return ["locationCity": locationCity, "bestSite": bestSite, "why": why, "numberOfReviews": numberOfReviews, "createdOn": createdOn, "postingUserID": postingUserID, "documentID": documentID]
+        return ["country": country, "locationCity": locationCity, "bestSite": bestSite, "why": why, "numberOfReviews": numberOfReviews, "createdOn": createdOn, "postingUserID": postingUserID, "documentID": documentID]
     }
     
     
-    init(locationCity: String, bestSite: String, why: String, numberOfReviews: Int, createdOn: String, postingUserID: String, documentID: String) {
+    init(country: String, locationCity: String, bestSite: String, why: String, numberOfReviews: Int, createdOn: String, postingUserID: String, documentID: String) {
+        self.country = country
         self.locationCity = locationCity
         self.bestSite = bestSite
         self.why = why
@@ -36,10 +38,11 @@ class Review {
     }
     
     convenience init() {
-        self.init(locationCity: "", bestSite: "", why: "", numberOfReviews: 0, createdOn: "", postingUserID: "", documentID: "")
+        self.init(country: "", locationCity: "", bestSite: "", why: "", numberOfReviews: 0, createdOn: "", postingUserID: "", documentID: "")
     }
     
     convenience init(dictionary: [String: Any]) {
+        let country = dictionary["country"] as! String? ?? ""
         let locationCity = dictionary["locationCity"] as! String? ?? ""
         let bestSite = dictionary["bestSite"] as! String? ?? ""
         let why = dictionary["why"] as! String? ?? ""
@@ -48,7 +51,7 @@ class Review {
         let postingUserID = dictionary["postingUserID"] as! String? ?? ""
         let documentID = dictionary["documentID"] as! String? ?? ""
         
-        self.init(locationCity: locationCity, bestSite: bestSite, why: why, numberOfReviews: numberOfReviews, createdOn: createdOn, postingUserID: postingUserID, documentID: documentID)
+        self.init(country: country, locationCity: locationCity, bestSite: bestSite, why: why, numberOfReviews: numberOfReviews, createdOn: createdOn, postingUserID: postingUserID, documentID: documentID)
     }
     
     // NOTE: If you keep the same programming conventions (e.g. a calculated property .dictionary that converts class properties to String: Any pairs, the name of the document stored in the class as .documentID) then the only thing you'll need to change is the document path (i.e. the lines containing "spots" below.

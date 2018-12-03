@@ -11,6 +11,7 @@ import Firebase
 
 class Reviews {
     var reviewArray = [Review]()
+    var country = ""
     var db: Firestore!
     
     init() {
@@ -28,8 +29,10 @@ class Reviews {
             //there are querysnapshot!.documents.count documents in the spots snapshot
             for document in querySnapshot!.documents {
                 let review = Review(dictionary: document.data())
-                review.documentID = document.documentID
-                self.reviewArray.append(review)
+                if review.country == self.country {
+                    review.documentID = document.documentID
+                    self.reviewArray.append(review)
+                }
             }
             completed()
         }

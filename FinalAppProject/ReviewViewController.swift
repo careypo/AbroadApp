@@ -19,13 +19,19 @@ class ReviewViewController: UIViewController {
     @IBOutlet weak var whyField: UITextView!
     
     var review: Review!
+    var country: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if review == nil {
             review = Review()
+            review.country = country
+        } else {
+            // shouldn't need this but just in case
+            country = review.country
         }
+        print(review.country)
         updateUserInterface()
 
     }
@@ -60,6 +66,9 @@ class ReviewViewController: UIViewController {
     
     @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
         updateDataFromInterface()
+        
+        print(review.dictionary)
+        
         review.saveData { success in
             if success {
                 self.leaveViewController()

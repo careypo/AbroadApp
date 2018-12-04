@@ -56,7 +56,7 @@ class ViewController: UIViewController {
     
     func authPickerViewController(forAuthUI authUI: FUIAuth) -> FUIAuthPickerViewController {
         let loginViewController = FUIAuthPickerViewController(authUI: authUI)
-        loginViewController.view.backgroundColor = UIColor.blue
+        loginViewController.view.backgroundColor = UIColor.cyan
         
         let marginInsets: CGFloat = 16
         let imageHeight: CGFloat = 225

@@ -17,9 +17,9 @@ class Countries: NSObject, MKAnnotation {
         var name: String
         var region: String
         var capitalName: String
-        //var currencySymbol: String
+        var currencyName: [String]
         var flagURL: String
-        var population: Double
+        var language: [String]
         var coordinate: CLLocationCoordinate2D
     
     var longitude: CLLocationDegrees {
@@ -35,17 +35,18 @@ class Countries: NSObject, MKAnnotation {
     }
     
 
-    init(name: String, region: String, capitalName: String, flagURL: String, population: Double, coordinate: CLLocationCoordinate2D) {
+    init(name: String, region: String, capitalName: String, currencyName: [String], flagURL: String, language: [String], coordinate: CLLocationCoordinate2D) {
         self.name = name
         self.region = region
         self.capitalName = capitalName
+        self.currencyName = currencyName
         self.flagURL = flagURL
-        self.population = population
+        self.language = language
         self.coordinate = coordinate
     }
     
     convenience override init() {
-        self.init(name: "", region: "", capitalName: "", flagURL: "", population: Double(), coordinate: CLLocationCoordinate2D())
+        self.init(name: "", region: "", capitalName: "", currencyName: [], flagURL: "", language: [], coordinate: CLLocationCoordinate2D())
         
     }
         
@@ -85,14 +86,26 @@ class Countries: NSObject, MKAnnotation {
                     }
             
                     let capitalName = json[index]["capital"].stringValue
-                    //let currencySymbol = json[index]["currencies"]["symbol"].stringValue
+                    
+                    var currencyNames = [String]()
+                    for (_, currency) in json[index]["currencies"] {
+                        currencyNames.append(currency["name"].stringValue)
+                    }
+                    
+                    var languageNames = [String]()
+                    for (_, language) in json[index]["languages"] {
+                        languageNames.append(language["name"].stringValue)
+                    }
+                    
+                    
+                    
                     let flagURL = json[index]["flag"].stringValue
-                    let population = json[index]["population"].doubleValue
+                    //let population = json[index]["population"].doubleValue
                     let latitude = json[index]["latlng"][0].doubleValue
                     let longitude = json[index]["latlng"][1].doubleValue
                     let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
                     print(coordinate)
-                    self.countryArray.append(Countries(name: name, region: region, capitalName: capitalName, flagURL: flagURL, population: population, coordinate: coordinate))
+                    self.countryArray.append(Countries(name: name, region: region, capitalName: capitalName, currencyName: currencyNames, flagURL: flagURL, language: languageNames, coordinate: coordinate))
                 }
             case .failure(let error):
                 print("*** ERROR: failed to get data from url \(self.countryURL) \(error.localizedDescription)")

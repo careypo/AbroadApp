@@ -36,10 +36,12 @@ class CountryListViewController: UIViewController {
                 destination.country = countries.countryArray[selectedIndex.row]
                 destination.name = countries.countryArray[selectedIndex.row].name
                 destination.capitalName = countries.countryArray[selectedIndex.row].capitalName
+                destination.currencyName = countries.countryArray[selectedIndex.row].currencyName[0]
 //                //destination.currencySymbol = countries.countryArray[selectedIndex.row].currencySymbol
                 destination.region = countries.countryArray[selectedIndex.row].region
                
                 destination.flagPic = countries.countryArray[selectedIndex.row].flagURL
+                destination.language = countries.countryArray[selectedIndex.row].language[0]
         
 //                destination.flagDetails.flagURL = countries.countryArray[selectedIndex.row].flagURL
 //                destination.language = countries.countryArray[selectedIndex.row].language

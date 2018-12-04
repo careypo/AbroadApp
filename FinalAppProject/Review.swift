@@ -54,7 +54,7 @@ class Review {
         self.init(country: country, locationCity: locationCity, bestSite: bestSite, why: why, numberOfReviews: numberOfReviews, createdOn: createdOn, postingUserID: postingUserID, documentID: documentID)
     }
     
-    // NOTE: If you keep the same programming conventions (e.g. a calculated property .dictionary that converts class properties to String: Any pairs, the name of the document stored in the class as .documentID) then the only thing you'll need to change is the document path (i.e. the lines containing "spots" below.
+
     func saveData(completion: @escaping (Bool) -> ())  {
         let db = Firestore.firestore()
         // Grab the user ID
@@ -86,6 +86,18 @@ class Review {
                     self.documentID = ref!.documentID
                     completion(true)
                 }
+            }
+        }
+    }
+    
+    func deleteData(review: Review, completed: @escaping (Bool) -> ()) {
+        let db = Firestore.firestore()
+        db.collection("reviews").document(documentID).delete {error in
+            if let error = error {
+                print("*** ERROR: deleting review documentID \(self.documentID) \(error.localizedDescription)")
+                completed(false)
+            } else {
+                completed(true)
             }
         }
     }

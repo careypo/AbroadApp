@@ -16,6 +16,9 @@
 		E71DBEDF21AFAE8A0093ECEE /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71DBEDE21AFAE8A0093ECEE /* Review.swift */; };
 		E71DBEE121B094550093ECEE /* Reviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71DBEE021B094550093ECEE /* Reviews.swift */; };
 		E71DBEE321B45F3B0093ECEE /* UIView+addBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71DBEE221B45F3B0093ECEE /* UIView+addBorder.swift */; };
+		E71DBEE521B5A1120093ECEE /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71DBEE421B5A1120093ECEE /* Photo.swift */; };
+		E71DBEE721B5A2240093ECEE /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71DBEE621B5A2240093ECEE /* Photos.swift */; };
+		E71DBEE921B5AF060093ECEE /* ReviewPhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71DBEE821B5AF060093ECEE /* ReviewPhotosCollectionViewCell.swift */; };
 		E773406E21ADD99000238E95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E773406D21ADD99000238E95 /* AppDelegate.swift */; };
 		E773407021ADD99000238E95 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E773406F21ADD99000238E95 /* ViewController.swift */; };
 		E773407321ADD99000238E95 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E773407121ADD99000238E95 /* Main.storyboard */; };
@@ -35,6 +38,9 @@
 		E71DBEDE21AFAE8A0093ECEE /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		E71DBEE021B094550093ECEE /* Reviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reviews.swift; sourceTree = "<group>"; };
 		E71DBEE221B45F3B0093ECEE /* UIView+addBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+addBorder.swift"; sourceTree = "<group>"; };
+		E71DBEE421B5A1120093ECEE /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		E71DBEE621B5A2240093ECEE /* Photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photos.swift; sourceTree = "<group>"; };
+		E71DBEE821B5AF060093ECEE /* ReviewPhotosCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewPhotosCollectionViewCell.swift; sourceTree = "<group>"; };
 		E773406A21ADD99000238E95 /* FinalAppProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalAppProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E773406D21ADD99000238E95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E773406F21ADD99000238E95 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -93,7 +99,10 @@
 				E7A331C521AF25E6000E0D91 /* flagDetails.swift */,
 				E773406F21ADD99000238E95 /* ViewController.swift */,
 				E716120021AE524B003E6831 /* CountryDetailViewController.swift */,
+				E71DBEE421B5A1120093ECEE /* Photo.swift */,
+				E71DBEE621B5A2240093ECEE /* Photos.swift */,
 				E71DBEDC21AFA9D90093ECEE /* ReviewViewController.swift */,
+				E71DBEE821B5AF060093ECEE /* ReviewPhotosCollectionViewCell.swift */,
 				E71DBEE021B094550093ECEE /* Reviews.swift */,
 				E71DBEDE21AFAE8A0093ECEE /* Review.swift */,
 				E71DBEE221B45F3B0093ECEE /* UIView+addBorder.swift */,
@@ -320,13 +329,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E71DBEE721B5A2240093ECEE /* Photos.swift in Sources */,
 				E71611FF21AE3FA9003E6831 /* Country.swift in Sources */,
+				E71DBEE921B5AF060093ECEE /* ReviewPhotosCollectionViewCell.swift in Sources */,
 				E716120121AE524B003E6831 /* CountryDetailViewController.swift in Sources */,
 				E71DBEDF21AFAE8A0093ECEE /* Review.swift in Sources */,
 				E7A331C621AF25E6000E0D91 /* flagDetails.swift in Sources */,
 				E71DBEE321B45F3B0093ECEE /* UIView+addBorder.swift in Sources */,
 				E773407021ADD99000238E95 /* ViewController.swift in Sources */,
 				E71611FD21AE3830003E6831 /* CountryListViewController.swift in Sources */,
+				E71DBEE521B5A1120093ECEE /* Photo.swift in Sources */,
 				E71DBEE121B094550093ECEE /* Reviews.swift in Sources */,
 				E773406E21ADD99000238E95 /* AppDelegate.swift in Sources */,
 				E71DBEDD21AFA9D90093ECEE /* ReviewViewController.swift in Sources */,

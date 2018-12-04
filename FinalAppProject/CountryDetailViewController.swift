@@ -16,19 +16,19 @@ class CountryDetailViewController: UIViewController {
     @IBOutlet weak var flagImage: UIImageView!
     @IBOutlet weak var regionLabel: UILabel!
     @IBOutlet weak var capitalNameLabel: UILabel!
-    @IBOutlet weak var currencySymbolLabel: UILabel!
+    @IBOutlet weak var currencyNameLabel: UILabel!
     @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var populationLabel: UILabel!
+    @IBOutlet weak var languageLabel: UILabel!
     @IBOutlet weak var tableView2: UITableView!
     
     var flagDetails = FlagDetails()
     
     var name: String!
     var capitalName: String!
-    var currencySymbol: String!
+    var currencyName: String!
     var region: String!
     var flagPic: String!
-    var population: String!
+    var language: String!
     
     var reviews: Reviews!
     
@@ -54,9 +54,9 @@ class CountryDetailViewController: UIViewController {
         
         nameLabel.text = name
         capitalNameLabel.text = capitalName
-        //currencySymbolLabel.text = currencySymbol
+        currencyNameLabel.text = currencyName
         regionLabel.text = region
-        populationLabel.text = population
+        languageLabel.text = language
         
         guard let imageURL = URL(string: flagDetails.flagURL) else { return }
         do {

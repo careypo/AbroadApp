@@ -20,14 +20,22 @@ class ReviewViewController: UIViewController {
 //    @IBOutlet weak var collectionView: UICollectionView!
 //    @IBOutlet weak var addPhotoButton: UIButton!
     @IBOutlet weak var deleteButton: UIButton!
+    
+    var enabled: Bool!
 
     
     var review: Review!
     var country: String!
     var photos: Photos!
+    var enableDeleteButton = false
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
+        deleteButton.isHidden = !enableDeleteButton
         
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
         tap.cancelsTouchesInView = false
@@ -37,6 +45,8 @@ class ReviewViewController: UIViewController {
         
 //        collectionView.delegate = self
 //        collectionView.dataSource = self
+        
+        
         
         if review == nil {
             review = Review()
@@ -55,6 +65,7 @@ class ReviewViewController: UIViewController {
             cancelBarButton.title = "Back"
             locationCityField.backgroundColor = UIColor.lightGray
             bestSiteField.backgroundColor = UIColor.lightGray
+            
         }
         print(review.country)
 //        photos = Photos()
@@ -79,6 +90,8 @@ class ReviewViewController: UIViewController {
         bestSiteField.text = review.bestSite
         whyField.text = review.why
     }
+    
+    
     
     func updateDataFromInterface() {
         review.bestSite = bestSiteField.text!

@@ -84,11 +84,14 @@ class CountryDetailViewController: UIViewController {
         
     }
     
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowReview" {
             let destination = segue.destination as! ReviewViewController
             let selectedIndexPath = tableView2.indexPathForSelectedRow!
             destination.review = reviews.reviewArray[selectedIndexPath.row]
+            destination.enableDeleteButton = true
         } else {
             if let selectedIndexPath = tableView2.indexPathForSelectedRow {
                 tableView2.deselectRow(at: selectedIndexPath, animated: true)
@@ -108,9 +111,9 @@ extension CountryDetailViewController: UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView2.dequeueReusableCell(withIdentifier: "Cell2", for: indexPath)
-        
-        // here is what you need to edit to make this work
+    
         cell.textLabel?.text = reviews.reviewArray[indexPath.row].bestSite
+        cell.detailTextLabel?.text = reviews.reviewArray[indexPath.row].locationCity
         return cell
     }
     

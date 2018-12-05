@@ -93,6 +93,7 @@ class CountryDetailViewController: UIViewController {
             destination.review = reviews.reviewArray[selectedIndexPath.row]
             destination.enableDeleteButton = true
         } else {
+            
             if let selectedIndexPath = tableView2.indexPathForSelectedRow {
                 tableView2.deselectRow(at: selectedIndexPath, animated: true)
             }

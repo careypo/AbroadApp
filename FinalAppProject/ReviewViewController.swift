@@ -33,7 +33,8 @@ class ReviewViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        bestSiteField.isEnabled = false
+
         
         deleteButton.isHidden = !enableDeleteButton
         
@@ -51,7 +52,8 @@ class ReviewViewController: UIViewController {
         if review == nil {
             review = Review()
             review.country = country
-            
+            locationCityField.isEnabled = false
+
            
             
         } else {
